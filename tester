@@ -1,0 +1,15 @@
+#!/bin/bash
+
+gcc main.c -o oui
+echo "LIBC :"
+echo ""
+./oui
+echo "----------"
+make re
+echo "----------"
+echo "LIBASM :"
+echo ""
+LD_PRELOAD=$PWD/libasm.so | ./oui
+echo "------------"
+rm oui
+make fclean
